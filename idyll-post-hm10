@@ -1,0 +1,63 @@
+[meta title:"My Idyll Post" description:"Short description of your project" /]
+
+[Header
+  fullWidth:true
+  title:"My Idyll Post"
+  subtitle:"Zhao-Hanyu-Homework10"
+  author:"Hanyu Zhao"
+  authorLink:"https://idyll-lang.org"
+  date:"Nov 11, 2021"
+  background:"#222222"
+  color:"#ffffff"
+   /]
+
+[var name:"x" value:0 /]
+
+## Introduction of Data
+
+The data I'm using for this assignment is
+[a href:"https://vincentarelbundock.github.io/Rdatasets/csv/AER/CigarettesB.csv"] Cigarettes Consumption Data[/a].
+The dataset collects cigarettes consumption information regarding the number of selling packs,
+the price of each pack of cigarette, and the income of selling the cigarettes. The data give a general view of
+the consumption of cigarettes in each state, which will help people better learn the cigarettes market.
+
+
+## Data at a glance
+
+[data name:"Cigarettes_Consumption_Data" source:"CigarettesB.csv" /]
+[Table data:Cigarettes_Consumption_Data /]
+
+
+## Cigarettes Consumption Data Visualization
+
+I made the bar chart data visualization based on the price of the cigarette and
+the number of the sold packs, so that through the visualization people can see the
+impact of price on the number of sold packs. (Maybe the corelation between the two
+data isn't that strong).
+
+[IdyllVegaLite data:Cigarettes_Consumption_Data spec:`{
+  mark: "bar",
+  height: "500",
+  width: "300",
+  encoding: {
+    x: {
+      bin: true,
+      field: "price",
+      type: "ordinal",
+      axis: {title: "Total Income"},
+    },
+    y: {
+      field: "income",
+      type: "ordinal",
+      axis: {title: "Sold Packs"},
+    }
+  }
+}` /]
+
+I used the bar chart vega-lite to do this data visualization.
+The reason why I choose this vega-lite
+is because it somehow could reflect the distribution of the number of sold packs
+and its falling total income domain. If I could have more time,
+I will further make the data more clear and let eveything on the chart make sense.
+
+
